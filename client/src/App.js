@@ -14,7 +14,7 @@ class App extends Component {
             <Link to="/otherpage">Other Page</Link>
           </header>
           <div>
-            <h1>Hola!</h1>
+            <h1>Hola ye!</h1>
             <Route exact path="/" component={Users} />
             <Route path="/otherpage" component={OtherPage} />
           </div>
