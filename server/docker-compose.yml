@@ -1,0 +1,44 @@
+# # Notes
+# -------------------------------------
+#     docker-compose build
+#     docker-compose up
+#
+#     Browser localhost:3000
+#     SQLElectron 127.0.0.1:3306
+# ~~
+#     docker-compose logs
+#     docker-compose down
+
+
+version: '3.5'
+
+services:
+  mymariadb:
+    image: 'mariadb'
+    hostname: mymariadb
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=tangent90
+      # # Doesn't seem necessary right now
+      # https://github.com/docker-library/mysql/issues/275#issuecomment-323325145
+      # - MYSQL_ROOT_HOST=%
+    networks:
+      - nodeapp-network
+
+  node:
+    build:
+      context: .
+      dockerfile: node.dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      WAIT_HOSTS: mymariadb:3306
+    networks:
+      - nodeapp-network
+    # network_mode: "host"
+
+networks:  
+  nodeapp-network:
+    name: dc_network
+    driver: bridge
