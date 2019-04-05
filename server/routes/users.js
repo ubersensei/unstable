@@ -12,4 +12,13 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.get('/getUsers', function(req, res, next) {
+    dbUsers.getUsers(function(err, users) {
+        if (err) {
+            next(err);
+        }
+        res.send(users);
+    });
+});
+
 module.exports = router;
