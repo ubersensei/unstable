@@ -7,7 +7,8 @@ class Users extends Component {
     };
 
     componentDidMount() {
-        axios.get('http://localhost:4000/users/getUsers').then(response => {
+        // axios.get('http://localhost:4000/api/users/getUsers').then(response => {
+        axios.get('/api/users/getUsers').then(response => {
             this.setState({
                 users: response.data
             });
