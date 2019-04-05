@@ -17,7 +17,6 @@ after_success:
   - docker push ubersensei/unstable-client 
   - docker push ubersensei/unstable-nginx 
   - docker push ubersensei/unstable-server 
-  - docker push ubersensei/unstable-worker
 
 # deploy:
 #   provider: elasticbeanstalk
