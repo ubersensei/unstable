@@ -14,7 +14,8 @@ class App extends Component {
                         <Link to="/otherpage">Other Page</Link>
                     </header>
                     <div>
-                        <h1>Hola ye! with Ion</h1>
+                        <h1>Demo page</h1>
+                        <p>With connections to a datbase and socket!</p>
                         <Route exact path="/" component={Users} />
                         <Route path="/otherpage" component={OtherPage} />
                     </div>

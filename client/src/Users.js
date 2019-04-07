@@ -18,7 +18,7 @@ class Users extends Component {
     render() {
         return (
             <div>
-                <div>This is the Users' page</div>
+                <div>This is users data from mysql database:</div>
                 <div>{JSON.stringify(this.state.users)}</div>
             </div>
         );
