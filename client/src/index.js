@@ -6,13 +6,17 @@ import * as serviceWorker from './serviceWorker';
 import socketio from 'socket.io-client';
 
 
-const socket = socketio('http://localhost:3050/socket.io/', {
+const socket = socketio('http://localhost:3050', {
     reconnection: false,
     // path: '/ws/'
     // 'reconnectionDelay': 2000,
     // 'reconnectionAttempts': 10 
     // forceNew: true
 });
+
+// const socket = socketio();
+
+socket.emit('fromClient', 'This is great!');
 
 socket.on('fromServer', function(data) {
     console.log(data);
