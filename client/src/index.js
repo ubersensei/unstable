@@ -3,7 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import socketio from 'socket.io-client';
 
+
+const socket = socketio('http://localhost:4000', {
+    reconnection: true
+    // 'reconnectionDelay': 2000,
+    // 'reconnectionAttempts': 10
+    // forceNew: true
+});
+
+socket.on('fromServer', function(data) {
+    console.log(data);
+});
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
