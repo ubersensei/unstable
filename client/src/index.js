@@ -8,7 +8,7 @@ import socketio from 'socket.io-client';
 
 let socket;
 if (process.env.NODE_ENV === 'development') {
-    socket = socketio('http://localhost', {
+    socket = socketio('http://localhost:3050', {
         reconnection: false,
         // 'reconnectionDelay': 2000,
         // 'reconnectionAttempts': 10 
