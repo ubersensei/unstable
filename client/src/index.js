@@ -6,10 +6,11 @@ import * as serviceWorker from './serviceWorker';
 import socketio from 'socket.io-client';
 
 
-const socket = socketio('http://localhost:4000', {
-    reconnection: true
+const socket = socketio('http://localhost:3050/socket.io/', {
+    reconnection: false,
+    // path: '/ws/'
     // 'reconnectionDelay': 2000,
-    // 'reconnectionAttempts': 10
+    // 'reconnectionAttempts': 10 
     // forceNew: true
 });
 
