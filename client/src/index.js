@@ -6,15 +6,22 @@ import * as serviceWorker from './serviceWorker';
 import socketio from 'socket.io-client';
 
 
-const socket = socketio('http://localhost:3050', {
-    reconnection: false,
-    // path: '/ws/'
-    // 'reconnectionDelay': 2000,
-    // 'reconnectionAttempts': 10 
-    // forceNew: true
-});
-
-// const socket = socketio();
+let socket;
+if (process.env.NODE_ENV === 'development') {
+    socket = socketio('http://localhost', {
+        reconnection: false,
+        // 'reconnectionDelay': 2000,
+        // 'reconnectionAttempts': 10 
+        // forceNew: true
+    });    
+} else {
+    socket = socketio('http://unstabledocker-env.qmiydmsfuj.us-west-2.elasticbeanstalk.com/', {
+        reconnection: false,
+        // 'reconnectionDelay': 2000,
+        // 'reconnectionAttempts': 10 
+        // forceNew: true
+    });    
+}
 
 socket.emit('fromClient', 'This is great!');
 

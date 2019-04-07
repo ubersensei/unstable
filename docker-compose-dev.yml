@@ -5,7 +5,7 @@ services:
     build:
       dockerfile: Dockerfile.dev
       context: ./nginx
-    ports:
+    ports:      
       - '80:80'
   mariadb:
     image: 'mariadb:latest'
@@ -24,6 +24,7 @@ services:
       - RDS_PASSWORD=tangent90
       - RDS_DATABASE=slingshot_db
       - RDS_PORT=3306
+      - NODE_ENV=development
       - WAIT_HOSTS="mariadb:3306"
   client:
     build:
@@ -31,4 +32,8 @@ services:
       context: ./client
     volumes:
         - /app/node_modules
-        - ./client:/app     
+        - ./client:/app
+    environment:
+      - NODE_ENV=development
+
+# docker-compose -f docker-compose.yml -f docker-compose-dev.yml up        

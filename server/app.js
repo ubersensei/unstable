@@ -28,18 +28,18 @@ app.get('*', function(req, res) {
     res.status(404).send({ error: 'No such GET route' });
 });
 
-// dbInitialize.createDB(
-//     {
-//         reset: true
-//     },
-//     function() {
-//         if (process.env.NODE_ENV === 'production') {
-//             dbInitialize.useDB();
-//         } else {
-//             dbInitialize.addInitialData();
-//         }
-//     }
-// );
+dbInitialize.createDB(
+    {
+        reset: true
+    },
+    function() {
+        if (process.env.NODE_ENV === 'production') {
+            dbInitialize.useDB();
+        } else {
+            dbInitialize.addInitialData();
+        }
+    }
+);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
