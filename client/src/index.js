@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './scss/main.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import socketio from 'socket.io-client';
@@ -23,10 +23,11 @@ if (process.env.NODE_ENV === 'development') {
     });    
 }
 
-socket.emit('fromClient', 'This is great!');
+socket.emit('fromClient', 'Hello world!');
 
 socket.on('fromServer', function(data) {
-    console.log(data);
+    console.log(`${data.title}/${data.content}`);
+    // console.log(data);
 });
 ReactDOM.render(<App />, document.getElementById('root'));
 

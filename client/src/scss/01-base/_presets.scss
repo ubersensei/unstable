@@ -1,0 +1,66 @@
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+//  box-sizing: apply a natural box layout model
+// to all elements, but allowing components to change
+// ~ paul irish
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+// http://css-tricks.com/snippets/html/responsive-meta-tag/
+@-ms-viewport {
+    width: device-width;
+}
+
+%font_pre {
+    font-family: 'Helvetica Neue', 'Helvetica', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        sans-serif; //16px
+    line-height: 1.625; //26px
+    color: $fontColor;
+}
+
+%font {
+    font-size: 1em;
+    @extend %font_pre;
+}
+
+body {
+    font-size: 100%;
+    @extend %font_pre;
+    background-color: $backgroundLight;
+
+    ::-webkit-scrollbar {
+        width: 6px !important;
+        height: 6px !important;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.08);
+    }
+}
+
+a:link,
+a:visited,
+a:active,
+a:hover {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

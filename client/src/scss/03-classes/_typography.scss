@@ -1,0 +1,66 @@
+h1 {
+    font-size: 2.1875em;
+    line-height: 1.142857;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 1.6875em;
+    line-height: 1.185;
+    letter-spacing: 0.01em;
+    font-weight: 400;
+    color: $fontColorTint2;
+}
+
+h3 {
+    font-size: 1.125em;
+    line-height: 1.25;
+}
+
+.h1_to_h2bold {
+    font-size: 1.6875em;
+    line-height: 1.185;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+    @include respond-to(desktop) {
+        font-size: 2.1875em;
+        line-height: 1.142857;
+    }
+}
+
+.caps {
+    font-size: 1.125em;
+    text-transform: uppercase;
+    letter-spacing: 0.079em;
+    font-weight: 600;
+    line-height: 1.67;
+    padding-bottom: 0.5625em;
+}
+
+p {
+    font-size: 0.875em;
+    line-height: 1.25;
+    text-align: left;
+}
+
+.subscript {
+    font-size: 0.75em;
+    line-height: 1.333;
+    color: $fontColorTint2;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.secondary-color {
+    color: $secondary;
+}
+
+.primaryy-color {
+    color: $primary;
+}

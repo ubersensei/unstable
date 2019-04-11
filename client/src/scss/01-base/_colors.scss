@@ -1,0 +1,52 @@
+$white: #ffffff;
+$black: #000000;
+
+$greyA: #f5f5f5;
+$greyB: #dce0e0;
+$greyC: #c4c4c4;
+$greyD: #82888a;
+$greyE: #565a5c;
+$greyF: #26292a;
+
+//$darkBlue: #003c82;
+$footerBlue: #1c2f46;
+$darkBlue: #00306e;
+$darkCerulean: #2f71a8;
+$cerulean: #00adef;
+
+$tomato: #ff5a5f;
+$parrotGreen: #05cd7d;
+$paleGreen: #ccf4b7;
+
+$amberHeard: #ffbd03;
+$pollResults: #7ba6ad;
+
+// -------------------------
+
+$primary: $darkBlue;
+$secondary: $tomato;
+$secondaryTint20: mix($secondary, $white, 80%);
+$secondaryShade20: mix($secondary, $black, 80%);
+
+$backgroundLight: $greyA;
+$backgroundDark: $greyB;
+
+$borderLight: $greyB;
+$borderDark: $greyC;
+
+$fontColorTint3: $greyC;
+$fontColorTint2: $greyD;
+$fontColorTint1: $greyE;
+$fontColor: $greyF;
+
+$iconLight: $greyD;
+$iconDark: $greyF;
+
+$offlineColor: $greyB;
+$onlineColor: $parrotGreen;
+
+$ratingColor: $amberHeard;
+
+$facebookBlue: #3b5998;
+$twitterBlue: #0084b4;
+$googleRed: #dd4b39;

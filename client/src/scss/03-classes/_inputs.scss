@@ -1,0 +1,107 @@
+input,
+textarea {
+    display: block;
+    line-height: 100%;
+    width: 100%;
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    -webkit-appearance: none;
+    border-radius: 0;
+    font-size: 1em;
+    line-height: 1;
+    padding: 0.5em;
+    border: 1px solid $borderLight;
+}
+
+input[type='submit'] {
+    @extend %rounded-corner-2;
+    margin-top: 1em;
+    color: $white;
+    padding: 0;
+    overflow: hidden;
+    border: none;
+    height: 2.45em;
+    border-bottom: 2px solid $secondaryShade20;
+}
+
+.submit-button-wrapper {
+    position: relative;
+    width: 100%;
+    .spinner {
+        position: absolute;
+        top: 0.7em;
+    }
+}
+
+textarea {
+    @extend %font;
+    display: block;
+    margin: 0;
+    border: 1px solid $borderLight;
+    padding: 0.3em 0.5em;
+    height: 5em;
+    line-height: 142.857%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    outline: none;
+    white-space: pre-line;
+}
+
+select {
+    display: block;
+    -webkit-appearance: none;
+    border-radius: 0;
+    margin: 0;
+    line-height: 120%;
+    outline: none;
+    border: none;
+    font-size: 1em;
+    background-color: $white;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+.select-style-wrapper {
+    text-align: left;
+    padding: 0.52em 0;
+    color: $fontColorTint2;
+    span {
+        display: inline-block;
+        margin-right: 1em;
+    }
+}
+.select-style {
+    position: relative;
+    i {
+        position: absolute;
+        top: -0.2em;
+        left: 1.5em;
+    }
+}
+
+textarea::-webkit-input-placeholder {
+    /* WebKit browsers */
+    font-style: italic;
+}
+input,
+textarea:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    font-style: italic;
+}
+input,
+textarea::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    font-style: italic;
+}
+input,
+textarea:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    font-style: italic;
+}

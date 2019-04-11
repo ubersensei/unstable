@@ -1,0 +1,87 @@
+button {
+    padding: 0;
+    line-height: inherit;
+    font-size: 1em;
+}
+
+.button {
+    // placeholder
+}
+
+%button2H {
+    @extend %rounded-corner-2;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    overflow: hidden;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+%button2H_secondary {
+    @extend %button2H;
+    color: $white;
+    background-color: $secondary;
+    border-bottom: 2px solid $secondaryShade20;
+    &:hover {
+        background-color: $secondaryTint20;
+    }
+}
+
+.button_2H_secondary {
+    @extend %button2H_secondary;
+}
+.button_2H5W_secondary {
+    @extend %button2H_secondary;
+    width: 5em;
+}
+.button_2H10W_secondary {
+    @extend %button2H_secondary;
+    width: 10em;
+}
+.button_2H_secondary_hollow {
+    @extend %button2H_secondary;
+    background-color: transparent;
+    color: $fontColorTint2;
+    border: 1px solid $secondary;
+    &:hover {
+        color: $white;
+        background-color: $secondaryTint20;
+    }
+}
+.button_2H_secondary_hollow,
+.button_2H5W_secondary_hollow,
+.button_2H6W_secondary_hollow,
+.button_2H10W_secondary_hollow {
+    @extend %button2H_secondary;
+    background-color: transparent;
+    color: $fontColorTint2;
+    border: 1px solid $secondary;
+    &:hover {
+        border: none;
+        border-bottom: 2px solid $secondaryShade20;
+        color: $white;
+        background-color: $secondaryTint20;
+    }
+}
+
+.button_2H5W_secondary_hollow {
+    width: 5em;
+}
+
+.button_2H6W_secondary_hollow {
+    width: 6em;
+}
+.button_2H10W_secondary_hollow {
+    width: 10em;
+}
+
+// Classes to show button action
+// ------------------------------------
+.button-click-background {
+    border: none;
+    border-bottom: 2px solid $secondaryShade20;
+    color: $white;
+    background-color: $secondaryTint20;
+}
