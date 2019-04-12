@@ -1,0 +1,8 @@
+FROM node:alpine
+WORKDIR '/app'
+COPY ./package.json ./
+RUN npm install
+COPY ./ ./
+# https://github.com/ufoscout/docker-compose-wait
+RUN chmod +x ./wait
+CMD ["npm", "run", "dev"]
