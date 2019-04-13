@@ -24,7 +24,7 @@ class Users extends Component {
                     socket: socketio(
                         'http://unstabledocker-env.qmiydmsfuj.us-west-2.elasticbeanstalk.com/',
                         {
-                            reconnection: false
+                            reconnection: true
                         }
                     )
                 };
