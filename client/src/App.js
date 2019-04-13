@@ -17,8 +17,7 @@ class App extends Component {
                         </span>
                     </header>
                     <div>
-                        <h1>Demo page</h1>
-                        <p>With connections to a datbase and socket!</p>
+                        <h1>Demo page</h1>                    
                         <Route exact path="/" component={Users} />
                         <Route path="/otherpage" component={OtherPage} />
                     </div>

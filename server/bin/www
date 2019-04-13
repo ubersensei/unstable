@@ -26,10 +26,28 @@ const server = http.createServer(app);
  */
 
 const io = require('socket.io')(server);
+const serverName = process.env.NAME || 'Unknown';
+
+var redis = require('redis');
+var redisAdapter = require('socket.io-redis');
+const redisClient = redis.createClient({
+  host: 'redis',
+  port: 6379,
+  retry_strategy: () => 1000
+});
+const sub = redisClient.duplicate();
+const pub = redisClient.duplicate();
+
+io.adapter(redisAdapter({
+    key: 'adapterKey',
+    pubClient: pub,
+    subClient: sub,
+  }));
+
 io.on('connection', function(socket) {    
     socket.emit('fromServer', {
         title: 'myId',
-        content: `[${process.env.SERVER_NUMBER}]/[${port}]/[${socket.id}]`
+        content: `[${serverName}]/[${port}]/[${socket.id}]`
     });
     socket.on('fromClient', function(data) {
         // we receive message from the client and
@@ -37,7 +55,7 @@ io.on('connection', function(socket) {
         // console.log(data);
         io.emit('fromServer', {
             title: 'from',
-            content: `[${process.env.SERVER_NUMBER}]/[${port}]/[${socket.id}] says ${data}`
+            content: `[${serverName}]/[${port}]/[${socket.id}] says ${data}`
         });
     });
 });

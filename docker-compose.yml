@@ -1,56 +1,79 @@
 version: '3.6'
 services:
-  nginx:
-    restart: always
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./nginx
-    ports:      
-      - '3050:80'
-  mariadb:
-    image: 'mariadb:latest'
-    environment:
-      - MYSQL_ROOT_PASSWORD=tangent90
-  api:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./server
-    volumes:
-      - /app/node_modules
-      - ./server:/app
-    environment:
-      - RDS_HOSTNAME=mariadb
-      - RDS_USERNAME=root
-      - RDS_PASSWORD=tangent90
-      - RDS_DATABASE=slingshot_db
-      - RDS_PORT=3306
-      - NODE_ENV=development
-      - SERVER_NUMBER=one
-      - WAIT_HOSTS="mariadb:3306"
-  api1:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./server1
-    volumes:
-      - /app/node_modules
-      - ./server1:/app
-    environment:
-      - RDS_HOSTNAME=mariadb
-      - RDS_USERNAME=root
-      - RDS_PASSWORD=tangent90
-      - RDS_DATABASE=slingshot_db
-      - RDS_PORT=3306
-      - NODE_ENV=development
-      - SERVER_NUMBER=two
-      - WAIT_HOSTS="mariadb:3306"
-  client:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./client
-    volumes:
-        - /app/node_modules
-        - ./client:/app
-    environment:
-      - NODE_ENV=development
-
-# docker-compose -f docker-compose.yml -f docker-compose-dev.yml up        
+    # NGINX #############################
+    nginx:
+        restart: always
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./nginx
+        ports:
+            - '3050:80'
+    # MARIADB #############################
+    mariadb:
+        image: 'mariadb:latest'
+        environment:
+            - MYSQL_ROOT_PASSWORD=tangent90
+    # API-ALPHA #############################
+    api-alpha:
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./server
+        volumes:
+            - /app/node_modules
+            - ./server:/app
+        environment:
+            - RDS_HOSTNAME=mariadb
+            - RDS_USERNAME=root
+            - RDS_PASSWORD=tangent90
+            - RDS_DATABASE=slingshot_db
+            - RDS_PORT=3306
+            - NODE_ENV=development
+            - NAME=api-alpha
+            - WAIT_HOSTS="mariadb:3306"
+    # API-BETA #############################
+    api-beta:
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./server
+        volumes:
+            - /app/node_modules
+            - ./server:/app
+        environment:
+            - RDS_HOSTNAME=mariadb
+            - RDS_USERNAME=root
+            - RDS_PASSWORD=tangent90
+            - RDS_DATABASE=slingshot_db
+            - RDS_PORT=3306
+            - NODE_ENV=development
+            - NAME=api-beta
+            - WAIT_HOSTS="mariadb:3306"
+    # API-GAMMA #############################
+    api-gamma:
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./server
+        volumes:
+            - /app/node_modules
+            - ./server:/app
+        environment:
+            - RDS_HOSTNAME=mariadb
+            - RDS_USERNAME=root
+            - RDS_PASSWORD=tangent90
+            - RDS_DATABASE=slingshot_db
+            - RDS_PORT=3306
+            - NODE_ENV=development
+            - NAME=api-gamma
+            - WAIT_HOSTS="mariadb:3306"
+    # CLIENT #############################
+    client:
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./client
+        volumes:
+            - /app/node_modules
+            - ./client:/app
+        environment:
+            - NODE_ENV=development
+    # REDIS #############################
+    redis:
+        image: redis:alpine
